@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Input, Modal, message } from "antd";
+import { Layout, Input, Modal, message, Row, Col, Button } from "antd";
 import global from "@/global";
 import "@/css/Demo3.less";
 
@@ -264,12 +264,117 @@ export default class WhoIsUnder extends Component {
   render() {
     return (
       <div className="who_is_under">
-        <button onClick={this.userJoin}>进入房间</button>
-        <button onClick={this.userExit}>离开房间</button>
+        <Row>
+          <Col span={9} style={{ height: window.innerHeight }}>
+            {/*  聊天框上部分 */}
+            <Row>
+              <Col
+                span={12}
+                style={{ height: 200, backgroundColor: "#555555" }}
+              >
+                <Row style={{ height: 100 }}>
+                  <Col
+                    span={12}
+                    style={{ textAlign: "center", margin: "auto" }}
+                  >
+                    <Button onClick={this.userJoin} size="small">
+                      进入房间
+                    </Button>
+                  </Col>
+                  <Col
+                    span={12}
+                    style={{ textAlign: "center", margin: "auto" }}
+                  >
+                    <Button onClick={this.userExit} size="small">
+                      离开房间
+                    </Button>
+                  </Col>
+                </Row>
+                <Row style={{ height: 100 }}>
+                  <Col
+                    span={12}
+                    style={{ textAlign: "center", margin: "auto" }}
+                  >
+                    <Button size="small">占位符3</Button>
+                  </Col>
+                  <Col
+                    span={12}
+                    style={{ textAlign: "center", margin: "auto" }}
+                  >
+                    <Button size="small">占位符4</Button>
+                  </Col>
+                </Row>
+              </Col>
+              <Col
+                span={12}
+                style={{
+                  height: 200,
+                  backgroundColor: "#aaaaaa",
+                  padding: 20,
+                }}
+              >
+                <div>ID:占位符</div>
+                <div>座位:1</div>
+                <div>关键词:JGD</div>
+                <div>轮数：1</div>
+              </Col>
+            </Row>
+            {/*  聊天框 */}
+            <div
+              style={{
+                // bottom: 50,
+                marginTop: 20,
+                overflowY: "scroll",
+                width: "100%", // 6 * boxLen,
+                height: window.innerHeight - 200 - 100 - 20, // 16 * boxLen,
+                // position: "absolute",
+              }}
+            >
+              {this.state.text.map((value, index) => {
+                return (
+                  <div
+                    style={{
+                      textAlign: "left",
+                    }}
+                    key={index}
+                  >
+                    {value}
+                  </div>
+                );
+              })}
+            </div>
+            {/* 输入框 */}
+            <Input
+              value={this.state.msg}
+              onChange={(e) => {
+                this.setState({
+                  msg: e.target.value,
+                });
+              }}
+              onPressEnter={this.userSend}
+              style={{
+                // left:windowInnerWidth-400,
+                // height:24,
+                width: "60%",
+                // top:50,
+                // position:"absolute",
+              }}
+            />
+            {/* 发言按钮 */}
+            <br />
+            <button onClick={this.userSend}>发言</button>
+            <button onClick={this.userSend}>发送词语描述</button>
+          </Col>
+          <Col
+            span={15}
+            style={{ backgroundColor: "#555555", height: window.innerHeight }}
+          >
+            <button>11111</button>
+          </Col>
+        </Row>
         <button onClick={this.showModal}>
           {this.state.name === "" ? "登录" : this.state.name}
         </button>
-        <br />
         <Modal
           title="登录"
           visible={this.state.visible}
@@ -292,60 +397,6 @@ export default class WhoIsUnder extends Component {
             onChange={this.passwordChange}
           />
         </Modal>
-        <br />
-        <Input
-          value={this.state.msg}
-          onChange={(e) => {
-            this.setState({
-              msg: e.target.value,
-            });
-          }}
-          onPressEnter={this.userSend}
-          style={{
-            // left:windowInnerWidth-400,
-            // height:24,
-            width: 200,
-            // top:50,
-            // position:"absolute",
-          }}
-        />
-
-        <button
-          onClick={this.userSend}
-          style={
-            {
-              // left:windowInnerWidth-200,
-              // height:24,
-              // top:50,
-              // position:"absolute",
-            }
-          }
-        >
-          发言
-        </button>
-        <br />
-        <div
-          style={{
-            top: 50,
-            overflowY: "scroll",
-            width: 6 * boxLen,
-            height: 16 * boxLen,
-            position: "absolute",
-          }}
-        >
-          {this.state.text.map((value, index) => {
-            return (
-              <div
-                style={{
-                  textAlign: "left",
-                }}
-                key={index}
-              >
-                {value}
-              </div>
-            );
-          })}
-        </div>
         <br />
       </div>
     );

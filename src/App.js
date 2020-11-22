@@ -19,25 +19,27 @@ class App extends Component {
         <HashRouter>
           <Suspense fallback={<div>Loading...</div>}>
             <Layout>
-              <Layout.Header className="header">
-                <div className="logo" />
-                <Menu
-                  theme="dark"
-                  mode="horizontal"
-                  defaultSelectedKeys={["0"]}
-                >
-                  <Menu.Item key="1">
-                    <Link to="/game1">Who Is Under</Link>
-                  </Menu.Item>
-                </Menu>
-              </Layout.Header>
+              {/* <Layout.Header className="header"> */}
+              {/*  <div className="logo" /> */}
+              {/*  <Menu */}
+              {/*    theme="dark" */}
+              {/*    mode="horizontal" */}
+              {/*    defaultSelectedKeys={["0"]} */}
+              {/*  > */}
+              {/*    <Menu.Item key="1"> */}
+              {/*      <Link to="/game1">Who Is Under</Link> */}
+              {/*    </Menu.Item> */}
+              {/*  </Menu> */}
+              {/* </Layout.Header> */}
               <Layout>
                 <Layout.Content
                   className="site-layout-background"
                   style={{
                     padding: 0,
-                    margin: 0,
-                    minHeight: 280,
+                    margin: " 0 10%",
+                    width: "80%",
+                    backgroundColor: "#c0cbdc",
+                    minHeight: window.innerHeight,
                   }}
                 >
                   <Route path="/game1" component={WhoIsUnder} />
