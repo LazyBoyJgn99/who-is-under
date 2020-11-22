@@ -23,7 +23,8 @@
         "window": true,
         "fetch": true,
         "WebSocket": true,
-        "alert": true
+        "alert": true,
+        "navigator": true
     },
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
