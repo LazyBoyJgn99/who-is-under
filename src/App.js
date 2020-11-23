@@ -2,6 +2,7 @@ import React, { Component, Suspense } from "react";
 import { Layout, Tooltip, Menu } from "antd";
 import { HashRouter, Route, Link } from "react-router-dom";
 import asyncComponent from "./AsyncComponent";
+import "@/css/App.css";
 
 const WhoIsUnder = asyncComponent(() => import("./pages/WhoIsUnder"));
 
