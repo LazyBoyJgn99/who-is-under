@@ -378,7 +378,7 @@ export default class WhoIsUnder extends Component {
           {/* 座位 */}
           <Col
             span={15}
-            style={{ backgroundColor: "#555555", height: window.innerHeight }}
+            style={{ height: window.innerHeight, padding: "0 20px 20px 20px" }}
           >
             <Row style={{ height: window.innerHeight / 3 }}>
               <Col span={8} className="div_center">
