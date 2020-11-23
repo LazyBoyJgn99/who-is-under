@@ -3,6 +3,7 @@ import { Input, Modal, message, Row, Col, Button } from "antd";
 import global from "@/global";
 import "@/css/Demo3.less";
 import "@/css/sc.less";
+import Player from "@/components/whoIsUnder/Player";
 // 屏幕宽度
 // const windowInnerWidth = window.innerWidth;
 // 屏幕高度
@@ -382,35 +383,35 @@ export default class WhoIsUnder extends Component {
           >
             <Row style={{ height: window.innerHeight / 3 }}>
               <Col span={8} className="div_center">
-                <button>座位1</button>
+                <Player />
               </Col>
               <Col span={8} className="div_center">
-                <button>座位2</button>
+                <Player />
               </Col>
               <Col span={8} className="div_center">
-                <button>座位3</button>
-              </Col>
-            </Row>
-            <Row style={{ height: window.innerHeight / 3 }}>
-              <Col span={8} className="div_center">
-                <button>座位4</button>
-              </Col>
-              <Col span={8} className="div_center">
-                <button>座位5</button>
-              </Col>
-              <Col span={8} className="div_center">
-                <button>座位6</button>
+                <Player />
               </Col>
             </Row>
             <Row style={{ height: window.innerHeight / 3 }}>
               <Col span={8} className="div_center">
-                <button>座位7</button>
+                <Player />
               </Col>
               <Col span={8} className="div_center">
-                <button>座位8</button>
+                <Player />
               </Col>
               <Col span={8} className="div_center">
-                <button>座位9</button>
+                <Player />
+              </Col>
+            </Row>
+            <Row style={{ height: window.innerHeight / 3 }}>
+              <Col span={8} className="div_center">
+                <Player />
+              </Col>
+              <Col span={8} className="div_center">
+                <Player />
+              </Col>
+              <Col span={8} className="div_center">
+                <Player />
               </Col>
             </Row>
           </Col>
