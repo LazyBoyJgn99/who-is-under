@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import { Layout, Input, Modal, message, Row, Col, Button } from "antd";
+import { Input, Modal, message, Row, Col, Button } from "antd";
 import global from "@/global";
 import "@/css/Demo3.less";
-
+import "@/css/sc.less";
 // 屏幕宽度
-const windowInnerWidth = window.innerWidth;
+// const windowInnerWidth = window.innerWidth;
 // 屏幕高度
-const windowInnerHeight = window.innerHeight;
+// const windowInnerHeight = window.innerHeight;
 // 屏幕宽度/20
-const boxWidth = windowInnerWidth / 20;
+// const boxWidth = windowInnerWidth / 20;
 // 屏幕高度/20
-const boxHeight = windowInnerHeight / 20;
+// const boxHeight = windowInnerHeight / 20;
 // 单位大小
-const boxLen = boxWidth < boxHeight ? boxWidth : boxHeight;
+// const boxLen = boxWidth < boxHeight ? boxWidth : boxHeight;
 
 // 禁止下拉
 document.addEventListener(
@@ -268,10 +268,7 @@ export default class WhoIsUnder extends Component {
           <Col span={9} style={{ height: window.innerHeight }}>
             {/*  聊天框上部分 */}
             <Row>
-              <Col
-                span={12}
-                style={{ height: 200, backgroundColor: "#555555" }}
-              >
+              <Col span={12} style={{ height: 200 }}>
                 <Row style={{ height: 100 }}>
                   <Col
                     span={12}
@@ -295,7 +292,9 @@ export default class WhoIsUnder extends Component {
                     span={12}
                     style={{ textAlign: "center", margin: "auto" }}
                   >
-                    <Button size="small">占位符3</Button>
+                    <Button size="small" onClick={this.showModal}>
+                      {this.state.name === "" ? "登录" : this.state.name}
+                    </Button>
                   </Col>
                   <Col
                     span={12}
@@ -309,14 +308,24 @@ export default class WhoIsUnder extends Component {
                 span={12}
                 style={{
                   height: 200,
-                  backgroundColor: "#aaaaaa",
                   padding: 20,
                 }}
               >
-                <div>ID:占位符</div>
-                <div>座位:1</div>
-                <div>关键词:JGD</div>
-                <div>轮数：1</div>
+                <div
+                  style={{
+                    height: "100%",
+                    width: "100%",
+                    backgroundColor: "#ffffff",
+                  }}
+                >
+                  <div>
+                    &emsp;ID：&emsp;&emsp;&emsp;
+                    {this.state.name === "" ? "尚未登录" : this.state.name}
+                  </div>
+                  <div>&emsp;座位：&emsp;&emsp;1</div>
+                  <div>&emsp;关键词：&emsp;JGD</div>
+                  <div>&emsp;轮数：&emsp;&emsp;1</div>
+                </div>
               </Col>
             </Row>
             {/*  聊天框 */}
@@ -324,6 +333,7 @@ export default class WhoIsUnder extends Component {
               style={{
                 // bottom: 50,
                 marginTop: 20,
+                backgroundColor: "#dddddd",
                 overflowY: "scroll",
                 width: "100%", // 6 * boxLen,
                 height: window.innerHeight - 200 - 100 - 20, // 16 * boxLen,
@@ -365,16 +375,47 @@ export default class WhoIsUnder extends Component {
             <button onClick={this.userSend}>发言</button>
             <button onClick={this.userSend}>发送词语描述</button>
           </Col>
+          {/* 座位 */}
           <Col
             span={15}
             style={{ backgroundColor: "#555555", height: window.innerHeight }}
           >
-            <button>11111</button>
+            <Row style={{ height: window.innerHeight / 3 }}>
+              <Col span={8} className="div_center">
+                <button>座位1</button>
+              </Col>
+              <Col span={8} className="div_center">
+                <button>座位2</button>
+              </Col>
+              <Col span={8} className="div_center">
+                <button>座位3</button>
+              </Col>
+            </Row>
+            <Row style={{ height: window.innerHeight / 3 }}>
+              <Col span={8} className="div_center">
+                <button>座位4</button>
+              </Col>
+              <Col span={8} className="div_center">
+                <button>座位5</button>
+              </Col>
+              <Col span={8} className="div_center">
+                <button>座位6</button>
+              </Col>
+            </Row>
+            <Row style={{ height: window.innerHeight / 3 }}>
+              <Col span={8} className="div_center">
+                <button>座位7</button>
+              </Col>
+              <Col span={8} className="div_center">
+                <button>座位8</button>
+              </Col>
+              <Col span={8} className="div_center">
+                <button>座位9</button>
+              </Col>
+            </Row>
           </Col>
         </Row>
-        <button onClick={this.showModal}>
-          {this.state.name === "" ? "登录" : this.state.name}
-        </button>
+
         <Modal
           title="登录"
           visible={this.state.visible}

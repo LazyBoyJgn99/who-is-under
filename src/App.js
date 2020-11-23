@@ -46,32 +46,32 @@ class App extends Component {
                 </Layout.Content>
               </Layout>
             </Layout>
-            <div
-              style={{
-                position: "absolute",
-                width: window.innerWidth,
-                top: window.innerHeight - 50,
-                textAlign: "center",
-              }}
-            >
-              <div>
-                <span>@Author-</span>
-                <Tooltip title="QQ626723063">JGN</Tooltip>
-                <span>-</span>
-                <Tooltip title="QQ978539156">MilK</Tooltip>
-                <span>-</span>
-                <Tooltip title="QQ823561237">SC</Tooltip>
-              </div>
-              <a
-                onClick={() => {
-                  window.open(
-                    "http://beian.miit.gov.cn/publish/query/indexFirst.action"
-                  );
-                }}
-              >
-                浙ICP备18049534号-1
-              </a>
-            </div>
+            {/* <div */}
+            {/*  style={{ */}
+            {/*    position: "absolute", */}
+            {/*    width: window.innerWidth, */}
+            {/*    top: window.innerHeight - 50, */}
+            {/*    textAlign: "center", */}
+            {/*  }} */}
+            {/* > */}
+            {/*  <div> */}
+            {/*    <span>@Author-</span> */}
+            {/*    <Tooltip title="QQ626723063">JGN</Tooltip> */}
+            {/*    <span>-</span> */}
+            {/*    <Tooltip title="QQ978539156">MilK</Tooltip> */}
+            {/*    <span>-</span> */}
+            {/*    <Tooltip title="QQ823561237">SC</Tooltip> */}
+            {/*  </div> */}
+            {/*  <a */}
+            {/*    onClick={() => { */}
+            {/*      window.open( */}
+            {/*        "http://beian.miit.gov.cn/publish/query/indexFirst.action" */}
+            {/*      ); */}
+            {/*    }} */}
+            {/*  > */}
+            {/*    浙ICP备18049534号-1 */}
+            {/*  </a> */}
+            {/* </div> */}
           </Suspense>
         </HashRouter>
       </div>
