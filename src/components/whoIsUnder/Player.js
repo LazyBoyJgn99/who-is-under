@@ -6,10 +6,14 @@ export default class Player extends Component {
   state = {};
 
   static defaultProps = {
-    name: "空座位",
-    xxx1: "头像",
-    xxx2: "被投票的数量",
-    xxx3: "身份",
+    name: "空座位", // 用户名
+    img: 0, // 头像(0到9 0是空座位头像)
+    status: null, // 身份（0死亡1平民2内鬼）
+    set: null, // 座位号
+    word: "", // 关键词
+    vote: null, // 投票
+    votes: null, // 被投票数
+    speak: "", // 本轮发言
   };
 
   componentDidMount() {}
