@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import img0 from "@/img/img0.jpg";
-import img1 from "@/img/1";
-import img2 from "@/img/2";
-import img3 from "@/img/3";
-import img4 from "@/img/4";
-import img5 from "@/img/5";
-import img6 from "@/img/6";
-import img7 from "@/img/7";
-import img8 from "@/img/8";
-import img9 from "@/img/9";
+import img1 from "@/img/img1.jpg";
+import img2 from "@/img/img2.jpg";
+import img3 from "@/img/img3.jpg";
+import img4 from "@/img/img4.jpg";
+import img5 from "@/img/img5.jpg";
+import img6 from "@/img/img6.jpg";
+import img7 from "@/img/img7.jpg";
+import img8 from "@/img/img8.jpg";
+import img9 from "@/img/img9.jpg";
 
 export default class Player extends Component {
   state = {};
@@ -35,8 +35,7 @@ export default class Player extends Component {
    * 主函数
    */
   render() {
-    const { name } = this.props;
-    const { img } = this.props;
+    const { name, img } = this.props;
     const imgs = [img0, img1, img2, img3, img4, img5, img6, img7, img8, img9];
     return (
       <div className="who_is_under_player">
