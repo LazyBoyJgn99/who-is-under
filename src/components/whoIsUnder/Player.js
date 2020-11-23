@@ -16,9 +16,11 @@ export default class Player extends Component {
    * 主函数
    */
   render() {
+    const { name } = this.props;
+
     return (
       <div className="who_is_under_player">
-        <span>这是一个用户</span>
+        <span>{name}</span>
       </div>
     );
   }

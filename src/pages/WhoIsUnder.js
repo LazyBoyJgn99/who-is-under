@@ -263,6 +263,14 @@ export default class WhoIsUnder extends Component {
   };
 
   render() {
+    // 用户的假数据
+    const players = [
+      { name: "用户1" },
+      { name: "用户2" },
+      { name: "用户3" },
+      { name: "用户4" },
+    ];
+
     return (
       <div className="who_is_under">
         <Row>
@@ -383,18 +391,18 @@ export default class WhoIsUnder extends Component {
           >
             <Row style={{ height: window.innerHeight / 3 }}>
               <Col span={8} className="div_center">
-                <Player />
+                <Player name={players[0].name} />
               </Col>
               <Col span={8} className="div_center">
-                <Player />
+                <Player name={players[1].name} />
               </Col>
               <Col span={8} className="div_center">
-                <Player />
+                <Player name={players[2].name} />
               </Col>
             </Row>
             <Row style={{ height: window.innerHeight / 3 }}>
               <Col span={8} className="div_center">
-                <Player />
+                <Player name={players[3].name} />
               </Col>
               <Col span={8} className="div_center">
                 <Player />
