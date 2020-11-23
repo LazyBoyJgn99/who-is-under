@@ -269,6 +269,7 @@ export default class WhoIsUnder extends Component {
     return (
       <div className="who_is_under">
         <Row>
+          <Col span={1} />
           <Col span={9} style={{ height: window.innerHeight }}>
             {/*  聊天框上部分 */}
             <Row>
@@ -317,13 +318,14 @@ export default class WhoIsUnder extends Component {
               >
                 <div
                   style={{
-                    height: "100%",
+                    paddingTop: "10%",
+                    height: "90%",
                     width: "100%",
                     backgroundColor: "#ffffff",
                   }}
                 >
                   <div>
-                    &emsp;ID：&emsp;&emsp;&emsp;
+                    &emsp;用户名：&emsp;
                     {this.state.name === "" ? "尚未登录" : this.state.name}
                   </div>
                   <div>&emsp;座位：&emsp;&emsp;1</div>
@@ -376,12 +378,12 @@ export default class WhoIsUnder extends Component {
             />
             {/* 发言按钮 */}
             <br />
-            <button onClick={this.userSend}>发言</button>
-            <button onClick={this.userSend}>发送词语描述</button>
+            <Button onClick={this.userSend}>发言</Button>
+            <Button onClick={this.userSend}>发送词语描述</Button>
           </Col>
           {/* 座位 */}
           <Col
-            span={15}
+            span={14}
             style={{ height: window.innerHeight, padding: "0 20px 20px 20px" }}
           >
             <Row style={{ height: window.innerHeight / 3 }}>
@@ -400,21 +402,21 @@ export default class WhoIsUnder extends Component {
                 <Player name={players[3].name} />
               </Col>
               <Col span={8} className="div_center">
-                <Player />
+                <Player name={players[4].name} />
               </Col>
               <Col span={8} className="div_center">
-                <Player />
+                <Player name={players[5].name} />
               </Col>
             </Row>
             <Row style={{ height: window.innerHeight / 3 }}>
               <Col span={8} className="div_center">
-                <Player />
+                <Player name={players[6].name} />
               </Col>
               <Col span={8} className="div_center">
-                <Player />
+                <Player name={players[7].name} />
               </Col>
               <Col span={8} className="div_center">
-                <Player />
+                <Player name={players[8].name} />
               </Col>
             </Row>
           </Col>

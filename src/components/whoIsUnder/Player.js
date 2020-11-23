@@ -37,18 +37,14 @@ export default class Player extends Component {
   render() {
     const { name, img, speak } = this.props;
     const imgs = [img0, img1, img2, img3, img4, img5, img6, img7, img8, img9];
-    const SpeakDiv = (
+    const speakDiv = (
       <div style={{ height: 40, width: 220 }}>
         <span>{speak}</span>
       </div>
     );
     return (
       <div className="who_is_under_player">
-        {speak === "" ? (
-          <SpeakDiv />
-        ) : (
-          <div style={{ height: 40, width: 220 }} />
-        )}
+        {speak !== "" ? speakDiv : <div style={{ height: 40, width: 220 }} />}
         <br />
         <img src={imgs[img]} style={{ height: 120, width: 120 }} alt="" />
         <br />
