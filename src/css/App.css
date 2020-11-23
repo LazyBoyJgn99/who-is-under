@@ -3,3 +3,11 @@
   min-width: 100px;
   /*background-color: #999999;*/
 }
+@font-face{
+  font-family:"pxt";
+  src:url("../ttf/pxt.ttf");
+}
+@font-face{
+  font-family:"mht";
+  src:url("../ttf/mht.ttf");
+}

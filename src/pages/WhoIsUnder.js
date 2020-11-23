@@ -324,7 +324,7 @@ export default class WhoIsUnder extends Component {
                     backgroundColor: "#ffffff",
                   }}
                 >
-                  <div>
+                  <div style={{ fontFamily: "mht" }}>
                     &emsp;用户名：&emsp;
                     {this.state.name === "" ? "尚未登录" : this.state.name}
                   </div>
@@ -384,9 +384,11 @@ export default class WhoIsUnder extends Component {
           {/* 座位 */}
           <Col
             span={14}
-            style={{ height: window.innerHeight, padding: "0 20px 20px 20px" }}
+            style={{ height: window.innerHeight, padding: "0 5% 20px 5%" }}
           >
-            <Row style={{ height: window.innerHeight / 3 }}>
+            <Row
+              style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
+            >
               <Col span={8} className="div_center">
                 <Player name={players[0].name} />
               </Col>
@@ -397,7 +399,9 @@ export default class WhoIsUnder extends Component {
                 <Player name={players[2].name} />
               </Col>
             </Row>
-            <Row style={{ height: window.innerHeight / 3 }}>
+            <Row
+              style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
+            >
               <Col span={8} className="div_center">
                 <Player name={players[3].name} />
               </Col>
@@ -408,7 +412,9 @@ export default class WhoIsUnder extends Component {
                 <Player name={players[5].name} />
               </Col>
             </Row>
-            <Row style={{ height: window.innerHeight / 3 }}>
+            <Row
+              style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
+            >
               <Col span={8} className="div_center">
                 <Player name={players[6].name} />
               </Col>
