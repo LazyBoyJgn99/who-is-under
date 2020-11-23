@@ -1,13 +1,13 @@
-.demo3 {
-  text-align: center;
-  min-width: 100px;
-  /*background-color: #999999;*/
-}
-@font-face{
-  font-family:"pxt";
-  src:url("../ttf/pxt.TTF");
-}
-@font-face{
-  font-family:"mht";
-  src:url("../ttf/mht.ttf");
-}
+/*.demo3 {*/
+/*  text-align: center;*/
+/*  min-width: 100px;*/
+/*  !*background-color: #999999;*!*/
+/*}*/
+/*@font-face {*/
+/*  font-family:"mypxt";*/
+/*  src: url('../font/simhei.ttf');*/
+/*}*/
+/*@font-face{*/
+/*  font-family:"mht";*/
+/*  src:url("../font/mht.ttf");*/
+/*}*/

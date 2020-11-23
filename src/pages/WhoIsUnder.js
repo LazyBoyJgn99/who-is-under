@@ -4,6 +4,7 @@ import global from "@/global";
 import "@/css/Demo3.less";
 import "@/css/sc.less";
 import Player from "@/components/whoIsUnder/Player";
+
 // 屏幕宽度
 // const windowInnerWidth = window.innerWidth;
 // 屏幕高度
@@ -324,7 +325,7 @@ export default class WhoIsUnder extends Component {
                     backgroundColor: "#ffffff",
                   }}
                 >
-                  <div style={{ fontFamily: "mht" }}>
+                  <div style={{ fontFamily: "pxt" }}>
                     &emsp;用户名：&emsp;
                     {this.state.name === "" ? "尚未登录" : this.state.name}
                   </div>
