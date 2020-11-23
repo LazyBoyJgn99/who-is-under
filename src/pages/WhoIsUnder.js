@@ -263,49 +263,8 @@ export default class WhoIsUnder extends Component {
   };
 
   render() {
-    // 用户的假数据
-    const players = [
-      {
-        name: "用户1",
-        img: 0,
-        status: 1,
-        set: 1,
-        word: "JGD",
-        vote: 1,
-        votes: 0,
-        speak: "是个呆子",
-      },
-      {
-        name: "用户2",
-        img: 0,
-        status: 1,
-        set: 2,
-        word: "JGD",
-        vote: 1,
-        votes: 0,
-        speak: "是个呆子",
-      },
-      {
-        name: "用户3",
-        img: 0,
-        status: 1,
-        set: 2,
-        word: "JGD",
-        vote: 1,
-        votes: 0,
-        speak: "是个呆子",
-      },
-      {
-        name: "用户4",
-        img: 0,
-        status: 1,
-        set: 2,
-        word: "JGD",
-        vote: 1,
-        votes: 0,
-        speak: "是个呆子",
-      },
-    ];
+    // 用户数据
+    const players = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
 
     return (
       <div className="who_is_under">
