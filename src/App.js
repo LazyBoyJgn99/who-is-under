@@ -37,8 +37,8 @@ class App extends Component {
                   className="site-layout-background"
                   style={{
                     padding: 0,
-                    margin: " 0 10%",
-                    width: "80%",
+                    margin: " 0 5%",
+                    width: "90%",
                     backgroundColor: "#c0cbdc",
                     minHeight: window.innerHeight,
                   }}

@@ -265,7 +265,17 @@ export default class WhoIsUnder extends Component {
 
   render() {
     // 用户数据
-    const players = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
+    const players = [
+      { name: "测试员1", img: 0, speak: "最多总共就十个字内容" },
+      { name: "sc", img: 1, speak: "111" },
+      { name: "测试员2", img: 2, speak: "111" },
+      { name: "测试员3", img: 3, speak: "111" },
+      { name: "测试员4", img: 4, speak: "111" },
+      { name: "测试员5", img: 5, speak: "111" },
+      { name: "测试员6", img: 6, speak: "111" },
+      { name: "测试员7", img: 7, speak: "111" },
+      { name: "测试员8", img: 8, speak: "111" },
+    ];
 
     return (
       <div className="who_is_under">
@@ -391,39 +401,39 @@ export default class WhoIsUnder extends Component {
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
               <Col span={8} className="div_center">
-                <Player name={players[0].name} />
+                <Player {...players[0]} />
               </Col>
               <Col span={8} className="div_center">
-                <Player name={players[1].name} />
+                <Player {...players[1]} />
               </Col>
               <Col span={8} className="div_center">
-                <Player name={players[2].name} />
-              </Col>
-            </Row>
-            <Row
-              style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
-            >
-              <Col span={8} className="div_center">
-                <Player name={players[3].name} />
-              </Col>
-              <Col span={8} className="div_center">
-                <Player name={players[4].name} />
-              </Col>
-              <Col span={8} className="div_center">
-                <Player name={players[5].name} />
+                <Player {...players[2]} />
               </Col>
             </Row>
             <Row
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
               <Col span={8} className="div_center">
-                <Player name={players[6].name} />
+                <Player {...players[3]} />
               </Col>
               <Col span={8} className="div_center">
-                <Player name={players[7].name} />
+                <Player {...players[4]} />
               </Col>
               <Col span={8} className="div_center">
-                <Player name={players[8].name} />
+                <Player {...players[5]} />
+              </Col>
+            </Row>
+            <Row
+              style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
+            >
+              <Col span={8} className="div_center">
+                <Player {...players[6]} />
+              </Col>
+              <Col span={8} className="div_center">
+                <Player {...players[7]} />
+              </Col>
+              <Col span={8} className="div_center">
+                <Player {...players[8]} />
               </Col>
             </Row>
           </Col>

@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import img0 from "@/img/img0.jpg";
-import img1 from "@/img/img1.jpg";
-import img2 from "@/img/img2.jpg";
-import img3 from "@/img/img3.jpg";
-import img4 from "@/img/img4.jpg";
-import img5 from "@/img/img5.jpg";
-import img6 from "@/img/img6.jpg";
-import img7 from "@/img/img7.jpg";
-import img8 from "@/img/img8.jpg";
-import img9 from "@/img/img9.jpg";
+import playerNull from "@/img/player/player_null.png";
+import player1 from "@/img/player/player_1.png";
+import player2 from "@/img/player/player_2.png";
+import player3 from "@/img/player/player_3.png";
+import player4 from "@/img/player/player_4.png";
+import player5 from "@/img/player/player_5.png";
+import player6 from "@/img/player/player_6.png";
+import player7 from "@/img/player/player_7.png";
+import player8 from "@/img/player/player_8.png";
+import player9 from "@/img/player/player_9.png";
+import playerDie from "@/img/player/player_die.png";
+import dialog from "@/img/others/dialog.png";
 
 export default class Player extends Component {
   state = {};
@@ -35,20 +37,44 @@ export default class Player extends Component {
    * 主函数
    */
   render() {
-    const { name, img, speak } = this.props;
-    const imgs = [img0, img1, img2, img3, img4, img5, img6, img7, img8, img9];
+    const { name, img, status, set, word, vote, votes, speak } = this.props;
+    const imgs = [
+      playerNull,
+      player1,
+      player2,
+      player3,
+      player4,
+      player5,
+      player6,
+      player7,
+      player8,
+      player9,
+    ];
     const speakDiv = (
-      <div style={{ height: 40, width: 220 }}>
-        <span>{speak}</span>
+      <div
+        style={{
+          backgroundImage: `url(${dialog})`,
+          height: 50,
+          width: 225,
+          paddingTop: 8,
+          backgroundSize: "cover",
+          color: "#FFF",
+        }}
+      >
+        {speak}
       </div>
     );
     return (
       <div className="who_is_under_player">
-        {speak !== "" ? speakDiv : <div style={{ height: 40, width: 220 }} />}
+        {speak !== "" ? speakDiv : <div style={{ height: 50, width: 225 }} />}
         <br />
-        <img src={imgs[img]} style={{ height: 120, width: 120 }} alt="" />
+        <img
+          src={status === 0 ? playerDie : imgs[img]}
+          style={{ height: 120, width: 120 }}
+          alt=""
+        />
         <br />
-        <span>{name}</span>
+        <span style={{ fontSize: 18 }}>{name}</span>
       </div>
     );
   }
