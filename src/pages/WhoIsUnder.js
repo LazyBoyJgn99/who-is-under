@@ -6,6 +6,7 @@ import "@/css/sc.less";
 import Player from "@/components/whoIsUnder/Player";
 import chatFrame1 from "@/img/others/chat_frame_1.png";
 import chatFrame2 from "@/img/others/chat_frame_2.png";
+import chatFrame3 from "@/img/others/chat_frame_3.png";
 
 // 屏幕宽度
 // const windowInnerWidth = window.innerWidth;
@@ -384,33 +385,52 @@ export default class WhoIsUnder extends Component {
             </div>
             <div
               style={{
-                width: "90%",
-                margin: "0px auto",
+                marginLeft: 20,
+                width: (640 / 150) * 80,
                 height: 80,
+                verticalAlign: "top",
+                display: "inline-block",
                 backgroundRepeat: "no-repeat",
                 backgroundImage: `url(${chatFrame2})`,
                 backgroundSize: "contain",
+                padding: "5% 5% 4% 5%",
               }}
             >
               {/* 输入框 */}
-              {/* <Input */}
-              {/*  value={this.state.msg} */}
-              {/*  onChange={(e) => { */}
-              {/*    this.setState({ */}
-              {/*      msg: e.target.value, */}
-              {/*    }); */}
-              {/*  }} */}
-              {/*  onPressEnter={this.userSend} */}
-              {/*  style={{ */}
-              {/*    width: "60%", */}
-              {/*    // left:windowInnerWidth-400, */}
-              {/*    // height:24, */}
-              {/*    // position:"absolute", */}
-              {/*  }} */}
-              {/* /> */}
-              {/* /!* 发言按钮 *!/ */}
-              {/* <Button onClick={this.userSend}>发言</Button> */}
-              {/* <Button onClick={this.userSend}>发送词语描述</Button> */}
+              <Input
+                value={this.state.msg}
+                onChange={(e) => {
+                  this.setState({
+                    msg: e.target.value,
+                  });
+                }}
+                onPressEnter={this.userSend}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  verticalAlign: "top",
+                  backgroundColor: "rgba(0,0,0,0)",
+                  borderColor: "transparent",
+                  outline: "hidden",
+                  color: "#fff",
+                }}
+              />
+            </div>
+            <div
+              style={{
+                marginLeft: 20,
+                width: (265 / 155) * 80,
+                height: 80,
+                display: "inline-block",
+                backgroundRepeat: "no-repeat",
+                backgroundImage: `url(${chatFrame3})`,
+                backgroundSize: "contain",
+                // padding: "5% 5% 4% 5%",
+              }}
+            >
+              {/* 发言按钮 */}
+              <Button onClick={this.userSend}>发言</Button>
+              <Button onClick={this.userSend}>发送词语描述</Button>
             </div>
           </Col>
           {/* 座位 */}
