@@ -4,6 +4,8 @@ import global from "@/global";
 import "@/css/Demo3.less";
 import "@/css/sc.less";
 import Player from "@/components/whoIsUnder/Player";
+import chatFrame1 from "@/img/others/chat_frame_1.png";
+import chatFrame2 from "@/img/others/chat_frame_2.png";
 
 // 屏幕宽度
 // const windowInnerWidth = window.innerWidth;
@@ -348,49 +350,68 @@ export default class WhoIsUnder extends Component {
             {/*  聊天框 */}
             <div
               style={{
-                // bottom: 50,
-                marginTop: 20,
-                backgroundColor: "#dddddd",
-                overflowY: "scroll",
-                width: "100%", // 6 * boxLen,
-                height: window.innerHeight - 200 - 100 - 20, // 16 * boxLen,
-                // position: "absolute",
+                width: "100%",
+                height: 650,
+                backgroundRepeat: "no-repeat",
+                backgroundImage: `url(${chatFrame1})`,
+                backgroundSize: "100% 650px",
+                // backgroundSize: "contain",
               }}
             >
-              {this.state.text.map((value, index) => {
-                return (
-                  <div
-                    style={{
-                      textAlign: "left",
-                    }}
-                    key={index}
-                  >
-                    {value}
-                  </div>
-                );
-              })}
+              <div
+                style={{
+                  margin: "25% 10% 5% 10%",
+                  display: "inline-block",
+                  overflowY: "scroll",
+                  width: "80%", // 6 * boxLen,
+                  height: "70%", // 16 * boxLen,
+                  color: "#fff",
+                }}
+              >
+                {this.state.text.map((value, index) => {
+                  return (
+                    <div
+                      style={{
+                        textAlign: "left",
+                      }}
+                      key={index}
+                    >
+                      {value}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            {/* 输入框 */}
-            <Input
-              value={this.state.msg}
-              onChange={(e) => {
-                this.setState({
-                  msg: e.target.value,
-                });
-              }}
-              onPressEnter={this.userSend}
+            <div
               style={{
-                // left:windowInnerWidth-400,
-                // height:24,
-                width: "60%",
-                // top:50,
-                // position:"absolute",
+                width: "90%",
+                margin: "0px auto",
+                height: 80,
+                backgroundRepeat: "no-repeat",
+                backgroundImage: `url(${chatFrame2})`,
+                backgroundSize: "contain",
               }}
-            />
-            {/* 发言按钮 */}
-            <br />
-            <Button onClick={this.userSend}>发言</Button>
-            <Button onClick={this.userSend}>发送词语描述</Button>
+            >
+              {/* 输入框 */}
+              {/* <Input */}
+              {/*  value={this.state.msg} */}
+              {/*  onChange={(e) => { */}
+              {/*    this.setState({ */}
+              {/*      msg: e.target.value, */}
+              {/*    }); */}
+              {/*  }} */}
+              {/*  onPressEnter={this.userSend} */}
+              {/*  style={{ */}
+              {/*    width: "60%", */}
+              {/*    // left:windowInnerWidth-400, */}
+              {/*    // height:24, */}
+              {/*    // position:"absolute", */}
+              {/*  }} */}
+              {/* /> */}
+              {/* /!* 发言按钮 *!/ */}
+              {/* <Button onClick={this.userSend}>发言</Button> */}
+              {/* <Button onClick={this.userSend}>发送词语描述</Button> */}
+            </div>
           </Col>
           {/* 座位 */}
           <Col

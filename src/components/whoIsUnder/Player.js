@@ -58,7 +58,7 @@ export default class Player extends Component {
           width: 225,
           paddingTop: 8,
           backgroundSize: "cover",
-          color: "#FFF",
+          color: "#c0cbdc",
         }}
       >
         {speak}
@@ -70,11 +70,11 @@ export default class Player extends Component {
         <br />
         <img
           src={status === 0 ? playerDie : imgs[img]}
-          style={{ height: 120, width: 120 }}
+          style={{ height: 120, width: 120, pointerEvents: "none" }}
           alt=""
         />
         <br />
-        <span style={{ fontSize: 18 }}>{name}</span>
+        <b style={{ fontSize: 18, color: "#262b44" }}>{name}</b>
       </div>
     );
   }
