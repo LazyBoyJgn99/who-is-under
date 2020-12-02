@@ -179,52 +179,54 @@ export default class WhoIsUnder extends Component {
       this.ws.onmessage = (event) => {
         // 服务端发送的消息
         console.log(event);
-        const info = event.data;
-        const type = event.data.substring(0, 4);
-        const data = info.slice(4);
-        console.log(type);
-        let text;
-        // 跟据消息的前4个字母决定操作
-        switch (type) {
-          case "seta":
-            // 有新用户加入，发送广播
-            break;
-          case "msg0":
-            // 聊天
-            // message.success(data);
-            text = self.state.text;
-            text.unshift(data);
-            self.setState({
-              text,
-            });
-            break;
-          case "out1":
-            // 用户退出
-            if (self.state.seat1.username === data) {
-              self.setState({
-                seat1: {
-                  username: "",
-                  status: 0,
-                },
-              });
-            } else if (self.state.seat2.username === data) {
-              self.setState({
-                seat2: {
-                  username: "",
-                  status: 0,
-                },
-              });
-            }
-            console.log("delete", data);
-            break;
-          default:
-            // message.success(data);
-            text = self.state.text;
-            text.unshift(data);
-            self.setState({
-              text,
-            });
-        }
+        const list = JSON.parse(event);
+
+        // const info = event.data;
+        // const type = event.data.substring(0, 4);
+        // const data = info.slice(4);
+        // console.log(type);
+        // let text;
+        // // 跟据消息的前4个字母决定操作
+        // switch (type) {
+        //   case "seta":
+        //     // 有新用户加入，发送广播
+        //     break;
+        //   case "msg0":
+        //     // 聊天
+        //     // message.success(data);
+        //     text = self.state.text;
+        //     text.unshift(data);
+        //     self.setState({
+        //       text,
+        //     });
+        //     break;
+        //   case "out1":
+        //     // 用户退出
+        //     if (self.state.seat1.username === data) {
+        //       self.setState({
+        //         seat1: {
+        //           username: "",
+        //           status: 0,
+        //         },
+        //       });
+        //     } else if (self.state.seat2.username === data) {
+        //       self.setState({
+        //         seat2: {
+        //           username: "",
+        //           status: 0,
+        //         },
+        //       });
+        //     }
+        //     console.log("delete", data);
+        //     break;
+        //   default:
+        //     // message.success(data);
+        //     text = self.state.text;
+        //     text.unshift(data);
+        //     self.setState({
+        //       text,
+        //     });
+        // }
       };
       this.ws.onclose = () => {
         console.log(`用户[${username}] 已经离开房间!`);
