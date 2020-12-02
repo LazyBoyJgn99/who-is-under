@@ -33,15 +33,16 @@ export default class WhoIsUnder extends Component {
 
   // 用户数据
   players = [
-    { name: "测试员1", img: 0, vote: 0, votes: 0, speak: "最多十个字" },
-    { name: "sc", img: 1, vote: 1, votes: 1, speak: "" },
-    { name: "测试员2", img: 2, vote: 2, votes: 2, speak: "" },
-    { name: "测试员3", img: 3, vote: 3, votes: 3, speak: "" },
-    { name: "带资本家丁丁", img: 4, vote: 5, votes: 4, speak: "" },
-    { name: "测试员5", img: 5, vote: 6, votes: 5, speak: "" },
-    { name: "测试员6", img: 6, vote: 7, votes: 6, speak: "" },
-    { name: "测试员7", img: 7, vote: 8, votes: 7, speak: "" },
-    { name: "测试员8", img: 8, vote: 9, votes: 8, speak: "" },
+    {
+      name: "带资本家丁丁", // 用户名
+      img: 1, // 头像(0到9 0是空座位头像)
+      status: null, // 身份（0死亡1平民2内鬼）
+      seat: 0, // 座位号（0-8）
+      word: "", // 关键词
+      vote: 0, // 投票
+      votes: 8, // 被投票数
+      speak: "最多十个字", // 本轮发言
+    },
   ];
 
   state = {
@@ -193,7 +194,7 @@ export default class WhoIsUnder extends Component {
         // 服务端发送的消息
         // console.log(event);
         const datat = JSON.parse(event.data);
-        console.log(datat);
+        // console.log(datat);
         const { op, data, user } = datat;
         let text;
         switch (op) {
@@ -211,9 +212,11 @@ export default class WhoIsUnder extends Component {
               text,
             });
             break;
-          case "game":
+          case "game": // 接收所有数据
             this.players = JSON.parse(data);
-            console.log(this.players);
+            // console.log(this.players);
+            break;
+          case "game1": // 接收座位信息数据
             break;
           //   case "out1":
           //     // 用户退出
@@ -262,6 +265,20 @@ export default class WhoIsUnder extends Component {
       if (this.state.msg !== "") {
         const json = { op: "msg1", data: this.state.msg };
         this.ws.send(JSON.stringify(json));
+      }
+    }
+  };
+
+  /**
+   * 选择座位坐下
+   */
+  userSet = (num) => {
+    if (this.ws) {
+      if (this.players[num].name === "空座位") {
+        const json = { op: "game1", data: num };
+        this.ws.send(JSON.stringify(json));
+      } else {
+        console.log("在？KK信息"); // 弹出对应位置上的玩家信息
       }
     }
   };
@@ -446,39 +463,39 @@ export default class WhoIsUnder extends Component {
             <Row
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
-              <Col span={8}>
+              <Col span={8} onClick={this.userSet(1)}>
                 <Player {...this.players[0]} />
               </Col>
-              <Col span={8}>
+              <Col span={8} onClick={this.userSet(2)}>
                 <Player {...this.players[1]} />
               </Col>
-              <Col span={8}>
+              <Col span={8} onClick={this.userSet(3)}>
                 <Player {...this.players[2]} />
               </Col>
             </Row>
             <Row
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
-              <Col span={8}>
+              <Col span={8} onClick={this.userSet(4)}>
                 <Player {...this.players[3]} />
               </Col>
-              <Col span={8}>
+              <Col span={8} onClick={this.userSet(5)}>
                 <Player {...this.players[4]} />
               </Col>
-              <Col span={8}>
+              <Col span={8} onClick={this.userSet(6)}>
                 <Player {...this.players[5]} />
               </Col>
             </Row>
             <Row
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
-              <Col span={8}>
+              <Col span={8} onClick={this.userSet(7)}>
                 <Player {...this.players[6]} />
               </Col>
-              <Col span={8}>
+              <Col span={8} onClick={this.userSet(8)}>
                 <Player {...this.players[7]} />
               </Col>
-              <Col span={8}>
+              <Col span={8} onClick={this.userSet(9)}>
                 <Player {...this.players[8]} />
               </Col>
             </Row>

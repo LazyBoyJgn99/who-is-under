@@ -12,7 +12,7 @@ import player8 from "@/img/player/player_08.png";
 import player9 from "@/img/player/player_09.png";
 import playerDie from "@/img/player/player_0die.png";
 import dialog from "@/img/others/dialog.png";
-import numbersnull from "@/img/numbers/null.png";
+import numbersNull from "@/img/numbers/null.png";
 import numbers1 from "@/img/numbers/1.png";
 import numbers2 from "@/img/numbers/2.png";
 import numbers3 from "@/img/numbers/3.png";
@@ -38,10 +38,10 @@ export default class Player extends Component {
     name: "空座位", // 用户名
     img: 0, // 头像(0到9 0是空座位头像)
     status: null, // 身份（0死亡1平民2内鬼）
-    seat: null, // 座位号
+    seat: null, // 座位号（0-8）
     word: "", // 关键词
-    vote: null, // 投票
-    votes: null, // 被投票数
+    vote: 0, // 投票
+    votes: 0, // 被投票数
     speak: "", // 本轮发言
   };
 
@@ -70,7 +70,7 @@ export default class Player extends Component {
       player9,
     ];
     const numberss = [
-      numbersnull,
+      numbersNull,
       numbers1,
       numbers2,
       numbers3,
@@ -111,11 +111,15 @@ export default class Player extends Component {
             <b>{name}</b>
           </div>
           <img
-            src={vote === 0 ? numbersnull : numberss[vote]}
+            src={vote === 0 ? numbersNull : numberss[vote]}
             className="img_vote"
             alt=""
           />
-          <img src={vs[votes]} className="img_votes" alt="" />
+          {votes === 0 ? (
+            <div />
+          ) : (
+            <img src={vs[votes]} className="img_votes" alt="" />
+          )}
         </div>
       </div>
     );
