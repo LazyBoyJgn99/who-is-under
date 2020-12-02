@@ -172,11 +172,11 @@ export default class WhoIsUnder extends Component {
       const url = urlPrefix + username;
       const self = this;
       this.ws = new WebSocket(url);
-      this.ws.onopen = function () {
+      this.ws.onopen = () => {
         console.log("建立 websocket 连接...");
         self.userSetAll();
       };
-      this.ws.onmessage = function (event) {
+      this.ws.onmessage = (event) => {
         // 服务端发送的消息
         console.log(event);
         const info = event.data;
@@ -226,7 +226,7 @@ export default class WhoIsUnder extends Component {
             });
         }
       };
-      this.ws.onclose = function () {
+      this.ws.onclose = () => {
         console.log(`用户[${username}] 已经离开房间!`);
         console.log("关闭 websocket 连接...");
       };
