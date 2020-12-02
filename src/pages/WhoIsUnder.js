@@ -220,6 +220,7 @@ export default class WhoIsUnder extends Component {
             break;
           case "game1": // 接收座位信息数据
             console.log("game1接收");
+            console.log(data);
             break;
           //   case "out1":
           //     // 用户退出
