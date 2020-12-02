@@ -31,6 +31,19 @@ document.addEventListener(
 export default class WhoIsUnder extends Component {
   ws = null; // websocket
 
+  // 用户数据
+  players = [
+    { name: "测试员1", img: 0, vote: 0, votes: 0, speak: "最多十个字" },
+    { name: "sc", img: 1, vote: 1, votes: 1, speak: "" },
+    { name: "测试员2", img: 2, vote: 2, votes: 2, speak: "" },
+    { name: "测试员3", img: 3, vote: 3, votes: 3, speak: "" },
+    { name: "带资本家丁丁", img: 4, vote: 5, votes: 4, speak: "" },
+    { name: "测试员5", img: 5, vote: 6, votes: 5, speak: "" },
+    { name: "测试员6", img: 6, vote: 7, votes: 6, speak: "" },
+    { name: "测试员7", img: 7, vote: 8, votes: 7, speak: "" },
+    { name: "测试员8", img: 8, vote: 9, votes: 8, speak: "" },
+  ];
+
   state = {
     text: [], // 聊天框
     name: "", // 用户名
@@ -184,29 +197,24 @@ export default class WhoIsUnder extends Component {
         const { op, data, user } = datat;
         let text;
         switch (op) {
-          case "msg0":
+          case "msg0": // 系统消息
             text = self.state.text;
             text.unshift(data);
             self.setState({
               text,
             });
             break;
-          case "msg1":
+          case "msg1": // 玩家发言
             text = self.state.text;
-            text.unshift(`${user}:${data}`);
+            text.unshift(`${user} : ${data}`);
             self.setState({
               text,
             });
             break;
-          //   case "msg0":
-          //     // 聊天
-          //     // message.success(data);
-          //     text = self.state.text;
-          //     text.unshift(data);
-          //     self.setState({
-          //       text,
-          //     });
-          //     break;
+          case "game":
+            this.players = JSON.parse(data);
+            console.log(this.players);
+            break;
           //   case "out1":
           //     // 用户退出
           //     if (self.state.seat1.username === data) {
@@ -227,12 +235,13 @@ export default class WhoIsUnder extends Component {
           //     console.log("delete", data);
           //     break;
           default:
-            // message.success(data);
-            text = self.state.text;
-            text.unshift(data);
-            self.setState({
-              text,
-            });
+            console.log("op错误,没有识别");
+          // message.success(data);
+          // text = self.state.text;
+          // text.unshift(data);
+          // self.setState({
+          //   text,
+          // });
         }
       };
       this.ws.onclose = () => {
@@ -243,7 +252,7 @@ export default class WhoIsUnder extends Component {
   };
 
   /**
-   * 向服务端发送消息
+   * 向服务端发送聊天消息
    */
   userSend = () => {
     this.setState({
@@ -277,25 +286,6 @@ export default class WhoIsUnder extends Component {
   };
 
   render() {
-    // 用户数据
-    const players = [
-      {
-        name: "测试员1",
-        img: 0,
-        vote: 0,
-        votes: 0,
-        speak: "最多总共就十个字内容",
-      },
-      { name: "sc", img: 1, vote: 1, votes: 1, speak: "111" },
-      { name: "测试员2", img: 2, vote: 9, votes: 2, speak: "111" },
-      { name: "测试员3", img: 3, vote: 0, votes: 3, speak: "111" },
-      { name: "带资本家丁丁", img: 4, vote: 5, votes: 4, speak: "111" },
-      { name: "测试员5", img: 5, vote: 0, votes: 5, speak: "111" },
-      { name: "测试员6", img: 6, vote: 0, votes: 6, speak: "111" },
-      { name: "测试员7", img: 7, vote: 0, votes: 7, speak: "111" },
-      { name: "测试员8", img: 8, vote: 0, votes: 8, speak: "111" },
-    ];
-
     return (
       <div className="who_is_under">
         <Row>
@@ -367,7 +357,7 @@ export default class WhoIsUnder extends Component {
             <div
               style={{
                 width: "100%",
-                height: 650,
+                height: 600,
                 backgroundRepeat: "no-repeat",
                 backgroundImage: `url(${chatFrame1})`,
                 backgroundSize: "100% 650px",
@@ -457,39 +447,39 @@ export default class WhoIsUnder extends Component {
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
               <Col span={8}>
-                <Player {...players[0]} />
+                <Player {...this.players[0]} />
               </Col>
               <Col span={8}>
-                <Player {...players[1]} />
+                <Player {...this.players[1]} />
               </Col>
               <Col span={8}>
-                <Player {...players[2]} />
-              </Col>
-            </Row>
-            <Row
-              style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
-            >
-              <Col span={8}>
-                <Player {...players[3]} />
-              </Col>
-              <Col span={8}>
-                <Player {...players[4]} />
-              </Col>
-              <Col span={8}>
-                <Player {...players[5]} />
+                <Player {...this.players[2]} />
               </Col>
             </Row>
             <Row
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
               <Col span={8}>
-                <Player {...players[6]} />
+                <Player {...this.players[3]} />
               </Col>
               <Col span={8}>
-                <Player {...players[7]} />
+                <Player {...this.players[4]} />
               </Col>
               <Col span={8}>
-                <Player {...players[8]} />
+                <Player {...this.players[5]} />
+              </Col>
+            </Row>
+            <Row
+              style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
+            >
+              <Col span={8}>
+                <Player {...this.players[6]} />
+              </Col>
+              <Col span={8}>
+                <Player {...this.players[7]} />
+              </Col>
+              <Col span={8}>
+                <Player {...this.players[8]} />
               </Col>
             </Row>
           </Col>
