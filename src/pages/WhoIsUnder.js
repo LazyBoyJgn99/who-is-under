@@ -213,7 +213,9 @@ export default class WhoIsUnder extends Component {
             });
             break;
           case "game": // 接收所有数据
+            console.log(data);
             this.players = JSON.parse(data);
+            console.log(players);
             break;
           case "game1": // 接收座位信息数据
             break;
