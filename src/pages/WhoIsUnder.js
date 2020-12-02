@@ -174,12 +174,14 @@ export default class WhoIsUnder extends Component {
       this.ws = new WebSocket(url);
       this.ws.onopen = () => {
         console.log("建立 websocket 连接...");
-        self.userSetAll();
+        // self.userSetAll();
       };
       this.ws.onmessage = (event) => {
         // 服务端发送的消息
-        console.log(event);
-        // const json = JSON.parse(event.data);
+        // console.log(event);
+        const { data } = event;
+        console.log(data);
+        // const data = JSON.parse(event.data);
         // console.log(json);
 
         // const info = event.data;
@@ -245,7 +247,8 @@ export default class WhoIsUnder extends Component {
     });
     if (this.ws) {
       if (this.state.msg !== "") {
-        this.ws.send(`msg0${this.state.name}:${this.state.msg}`);
+        const json = { op: "msg", data: this.state.msg };
+        this.ws.send(JSON.stringify(json));
       }
     }
   };
