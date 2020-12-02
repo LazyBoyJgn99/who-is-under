@@ -179,7 +179,8 @@ export default class WhoIsUnder extends Component {
       this.ws.onmessage = (event) => {
         // 服务端发送的消息
         console.log(event);
-        const list = JSON.parse(event);
+        // const json = JSON.parse(event.data);
+        // console.log(json);
 
         // const info = event.data;
         // const type = event.data.substring(0, 4);

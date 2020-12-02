@@ -38,7 +38,7 @@ export default class Player extends Component {
     name: "空座位", // 用户名
     img: 0, // 头像(0到9 0是空座位头像)
     status: null, // 身份（0死亡1平民2内鬼）
-    set: null, // 座位号
+    seat: null, // 座位号
     word: "", // 关键词
     vote: null, // 投票
     votes: null, // 被投票数
@@ -56,7 +56,7 @@ export default class Player extends Component {
    * 主函数
    */
   render() {
-    const { name, img, status, set, word, vote, votes, speak } = this.props;
+    const { name, img, status, vote, votes, speak } = this.props;
     const imgs = [
       playerNull,
       player1,
