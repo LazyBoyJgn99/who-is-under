@@ -1,16 +1,27 @@
 import React, { Component } from "react";
-import playerNull from "@/img/player/player_null.png";
-import player1 from "@/img/player/player_1.png";
-import player2 from "@/img/player/player_2.png";
-import player3 from "@/img/player/player_3.png";
-import player4 from "@/img/player/player_4.png";
-import player5 from "@/img/player/player_5.png";
-import player6 from "@/img/player/player_6.png";
-import player7 from "@/img/player/player_7.png";
-import player8 from "@/img/player/player_8.png";
-import player9 from "@/img/player/player_9.png";
-import playerDie from "@/img/player/player_die.png";
+import "@/pages/WhoIsUnder.less";
+import playerNull from "@/img/player/player_0null.png";
+import player1 from "@/img/player/player_01.png";
+import player2 from "@/img/player/player_02.png";
+import player3 from "@/img/player/player_03.png";
+import player4 from "@/img/player/player_04.png";
+import player5 from "@/img/player/player_05.png";
+import player6 from "@/img/player/player_06.png";
+import player7 from "@/img/player/player_07.png";
+import player8 from "@/img/player/player_08.png";
+import player9 from "@/img/player/player_09.png";
+import playerDie from "@/img/player/player_0die.png";
 import dialog from "@/img/others/dialog.png";
+import numbers0 from "@/img/numbers/0.png";
+import numbers1 from "@/img/numbers/1.png";
+import numbers2 from "@/img/numbers/2.png";
+import numbers3 from "@/img/numbers/3.png";
+import numbers4 from "@/img/numbers/4.png";
+import numbers5 from "@/img/numbers/5.png";
+import numbers6 from "@/img/numbers/6.png";
+import numbers7 from "@/img/numbers/7.png";
+import numbers8 from "@/img/numbers/8.png";
+import numbers9 from "@/img/numbers/9.png";
 
 export default class Player extends Component {
   state = {};
@@ -50,12 +61,25 @@ export default class Player extends Component {
       player8,
       player9,
     ];
+    const numberss = [
+      numbers0,
+      numbers1,
+      numbers2,
+      numbers3,
+      numbers4,
+      numbers5,
+      numbers6,
+      numbers7,
+      numbers8,
+      numbers9,
+    ];
     const speakDiv = (
       <div
         style={{
           backgroundImage: `url(${dialog})`,
           height: 50,
           width: 225,
+          margin: "0 auto",
           paddingTop: 8,
           backgroundSize: "cover",
           color: "#c0cbdc",
@@ -65,16 +89,23 @@ export default class Player extends Component {
       </div>
     );
     return (
-      <div className="who_is_under_player">
+      <div className="who_is_under_player div_center">
+        <br />
         {speak !== "" ? speakDiv : <div style={{ height: 50, width: 225 }} />}
+        <div className="who_is_under_player_div" style={{ textAlign: "left" }}>
+          <img
+            className="img_bg"
+            src={status === 0 ? playerDie : imgs[img]}
+            alt=""
+          />
+          <b className="who_is_under_player_name">{name}</b>
+          <img
+            src={vote === 0 ? numbers0 : numberss[vote]}
+            className="img_vote"
+            alt=""
+          />
+        </div>
         <br />
-        <img
-          src={status === 0 ? playerDie : imgs[img]}
-          style={{ height: 120, width: 120, pointerEvents: "none" }}
-          alt=""
-        />
-        <br />
-        <b style={{ fontSize: 18, color: "#262b44" }}>{name}</b>
       </div>
     );
   }

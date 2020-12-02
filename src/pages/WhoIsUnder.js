@@ -269,15 +269,15 @@ export default class WhoIsUnder extends Component {
   render() {
     // 用户数据
     const players = [
-      { name: "测试员1", img: 0, speak: "最多总共就十个字内容" },
-      { name: "sc", img: 1, speak: "111" },
-      { name: "测试员2", img: 2, speak: "111" },
-      { name: "测试员3", img: 3, speak: "111" },
-      { name: "测试员4", img: 4, speak: "111" },
-      { name: "测试员5", img: 5, speak: "111" },
-      { name: "测试员6", img: 6, speak: "111" },
-      { name: "测试员7", img: 7, speak: "111" },
-      { name: "测试员8", img: 8, speak: "111" },
+      { name: "测试员1", img: 0, vote: 0, speak: "最多总共就十个字内容" },
+      { name: "sc", img: 1, vote: 1, speak: "111" },
+      { name: "测试员2", img: 2, vote: 0, speak: "111" },
+      { name: "测试员3", img: 3, vote: 0, speak: "111" },
+      { name: "测试员4", img: 4, vote: 0, speak: "111" },
+      { name: "测试员5", img: 5, vote: 0, speak: "111" },
+      { name: "测试员6", img: 6, vote: 0, speak: "111" },
+      { name: "测试员7", img: 7, vote: 0, speak: "111" },
+      { name: "测试员8", img: 8, vote: 0, speak: "111" },
     ];
 
     return (
@@ -287,8 +287,8 @@ export default class WhoIsUnder extends Component {
           <Col span={9} style={{ height: window.innerHeight }}>
             {/*  聊天框上部分 */}
             <Row>
-              <Col span={12} style={{ height: 200 }}>
-                <Row style={{ height: 100 }}>
+              <Col span={12} style={{ height: 150 }}>
+                <Row style={{ height: 75 }}>
                   <Col
                     span={12}
                     style={{ textAlign: "center", margin: "auto" }}
@@ -306,7 +306,7 @@ export default class WhoIsUnder extends Component {
                     </Button>
                   </Col>
                 </Row>
-                <Row style={{ height: 100 }}>
+                <Row style={{ height: 75 }}>
                   <Col
                     span={12}
                     style={{ textAlign: "center", margin: "auto" }}
@@ -326,14 +326,13 @@ export default class WhoIsUnder extends Component {
               <Col
                 span={12}
                 style={{
-                  height: 200,
+                  height: 150,
                   padding: 20,
                 }}
               >
                 <div
                   style={{
-                    paddingTop: "10%",
-                    height: "90%",
+                    height: "100%",
                     width: "100%",
                     backgroundColor: "#ffffff",
                   }}
@@ -441,39 +440,39 @@ export default class WhoIsUnder extends Component {
             <Row
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
-              <Col span={8} className="div_center">
+              <Col span={8}>
                 <Player {...players[0]} />
               </Col>
-              <Col span={8} className="div_center">
+              <Col span={8}>
                 <Player {...players[1]} />
               </Col>
-              <Col span={8} className="div_center">
+              <Col span={8}>
                 <Player {...players[2]} />
               </Col>
             </Row>
             <Row
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
-              <Col span={8} className="div_center">
+              <Col span={8}>
                 <Player {...players[3]} />
               </Col>
-              <Col span={8} className="div_center">
+              <Col span={8}>
                 <Player {...players[4]} />
               </Col>
-              <Col span={8} className="div_center">
+              <Col span={8}>
                 <Player {...players[5]} />
               </Col>
             </Row>
             <Row
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
-              <Col span={8} className="div_center">
+              <Col span={8}>
                 <Player {...players[6]} />
               </Col>
-              <Col span={8} className="div_center">
+              <Col span={8}>
                 <Player {...players[7]} />
               </Col>
-              <Col span={8} className="div_center">
+              <Col span={8}>
                 <Player {...players[8]} />
               </Col>
             </Row>
