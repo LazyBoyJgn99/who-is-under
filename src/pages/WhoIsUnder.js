@@ -463,39 +463,84 @@ export default class WhoIsUnder extends Component {
             <Row
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
-              <Col span={8} onClick={this.userSet(1)}>
+              <Col
+                span={8}
+                onClick={() => {
+                  this.userSet(0);
+                }}
+              >
                 <Player {...this.players[0]} />
               </Col>
-              <Col span={8} onClick={this.userSet(2)}>
+              <Col
+                span={8}
+                onClick={() => {
+                  this.userSet(1);
+                }}
+              >
                 <Player {...this.players[1]} />
               </Col>
-              <Col span={8} onClick={this.userSet(3)}>
+              <Col
+                span={8}
+                onClick={() => {
+                  this.userSet(2);
+                }}
+              >
                 <Player {...this.players[2]} />
               </Col>
             </Row>
             <Row
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
-              <Col span={8} onClick={this.userSet(4)}>
+              <Col
+                span={8}
+                onClick={() => {
+                  this.userSet(3);
+                }}
+              >
                 <Player {...this.players[3]} />
               </Col>
-              <Col span={8} onClick={this.userSet(5)}>
+              <Col
+                span={8}
+                onClick={() => {
+                  this.userSet(4);
+                }}
+              >
                 <Player {...this.players[4]} />
               </Col>
-              <Col span={8} onClick={this.userSet(6)}>
+              <Col
+                span={8}
+                onClick={() => {
+                  this.userSet(5);
+                }}
+              >
                 <Player {...this.players[5]} />
               </Col>
             </Row>
             <Row
               style={{ height: window.innerHeight / 3, padding: "0 0 25px 0" }}
             >
-              <Col span={8} onClick={this.userSet(7)}>
+              <Col
+                span={8}
+                onClick={() => {
+                  this.userSet(6);
+                }}
+              >
                 <Player {...this.players[6]} />
               </Col>
-              <Col span={8} onClick={this.userSet(8)}>
+              <Col
+                span={8}
+                onClick={() => {
+                  this.userSet(7);
+                }}
+              >
                 <Player {...this.players[7]} />
               </Col>
-              <Col span={8} onClick={this.userSet(9)}>
+              <Col
+                span={8}
+                onClick={() => {
+                  this.userSet(8);
+                }}
+              >
                 <Player {...this.players[8]} />
               </Col>
             </Row>
