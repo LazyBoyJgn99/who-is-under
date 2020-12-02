@@ -31,20 +31,6 @@ document.addEventListener(
 export default class WhoIsUnder extends Component {
   ws = null; // websocket
 
-  // 用户数据
-  players = [
-    {
-      name: "带资本家丁丁", // 用户名
-      img: 1, // 头像(0到9 0是空座位头像)
-      status: null, // 身份（0死亡1平民2内鬼）
-      seat: 0, // 座位号（0-8）
-      word: "", // 关键词
-      vote: 0, // 投票
-      votes: 8, // 被投票数
-      speak: "最多十个字", // 本轮发言
-    },
-  ];
-
   state = {
     text: [], // 聊天框
     name: "", // 用户名
@@ -53,6 +39,19 @@ export default class WhoIsUnder extends Component {
     visible: false, // 登陆Model是否显示
     msg: "", // 发言Input输入框
     word: "", // 关键词
+    players: [
+      {
+        // 用户数据
+        name: "带资本家丁丁", // 用户名
+        img: 1, // 头像(0到9 0是空座位头像)
+        status: null, // 身份（0死亡1平民2内鬼）
+        seat: 0, // 座位号（0-8）
+        word: "", // 关键词
+        vote: 0, // 投票
+        votes: 8, // 被投票数
+        speak: "最多十个字", // 本轮发言
+      },
+    ],
   };
 
   componentDidMount() {
@@ -198,6 +197,7 @@ export default class WhoIsUnder extends Component {
         // console.log(datat);
         const { op, data, user } = datat;
         let text;
+        let pla;
         switch (op) {
           case "msg0": // 系统消息
             text = self.state.text;
@@ -214,9 +214,11 @@ export default class WhoIsUnder extends Component {
             });
             break;
           case "game": // 接收所有数据
-            console.log(data);
-            this.players = JSON.parse(data);
-            console.log(this.players);
+            console.log(pla);
+            pla = JSON.parse(data);
+            self.setState({
+              players: pla,
+            });
             break;
           case "game1": // 接收座位信息数据
             console.log("game1接收");
@@ -278,7 +280,7 @@ export default class WhoIsUnder extends Component {
    */
   userSet = (num) => {
     if (this.ws) {
-      if (this.players[num].name === "空座位") {
+      if (this.state.players[num].name === "空座位") {
         const json = { op: "game1", data: num };
         this.ws.send(JSON.stringify(json));
       } else {
@@ -369,7 +371,10 @@ export default class WhoIsUnder extends Component {
                     {this.state.name === "" ? "尚未登录" : this.state.name}
                   </div>
                   <div>&emsp;座位：&emsp;&emsp;1</div>
-                  <div>&emsp;关键词：&emsp;JGD</div>
+                  <div>
+                    &emsp;关键词：&emsp;
+                    {this.state.word}
+                  </div>
                   <div>&emsp;轮数：&emsp;&emsp;1</div>
                 </div>
               </Col>
@@ -473,7 +478,7 @@ export default class WhoIsUnder extends Component {
                   this.userSet(0);
                 }}
               >
-                <Player {...this.players[0]} />
+                <Player {...this.state.players[0]} />
               </Col>
               <Col
                 span={8}
@@ -481,7 +486,7 @@ export default class WhoIsUnder extends Component {
                   this.userSet(1);
                 }}
               >
-                <Player {...this.players[1]} />
+                <Player {...this.state.players[1]} />
               </Col>
               <Col
                 span={8}
@@ -489,7 +494,7 @@ export default class WhoIsUnder extends Component {
                   this.userSet(2);
                 }}
               >
-                <Player {...this.players[2]} />
+                <Player {...this.state.players[2]} />
               </Col>
             </Row>
             <Row
@@ -501,7 +506,7 @@ export default class WhoIsUnder extends Component {
                   this.userSet(3);
                 }}
               >
-                <Player {...this.players[3]} />
+                <Player {...this.state.players[3]} />
               </Col>
               <Col
                 span={8}
@@ -509,7 +514,7 @@ export default class WhoIsUnder extends Component {
                   this.userSet(4);
                 }}
               >
-                <Player {...this.players[4]} />
+                <Player {...this.state.players[4]} />
               </Col>
               <Col
                 span={8}
@@ -517,7 +522,7 @@ export default class WhoIsUnder extends Component {
                   this.userSet(5);
                 }}
               >
-                <Player {...this.players[5]} />
+                <Player {...this.state.players[5]} />
               </Col>
             </Row>
             <Row
@@ -529,7 +534,7 @@ export default class WhoIsUnder extends Component {
                   this.userSet(6);
                 }}
               >
-                <Player {...this.players[6]} />
+                <Player {...this.state.players[6]} />
               </Col>
               <Col
                 span={8}
@@ -537,7 +542,7 @@ export default class WhoIsUnder extends Component {
                   this.userSet(7);
                 }}
               >
-                <Player {...this.players[7]} />
+                <Player {...this.state.players[7]} />
               </Col>
               <Col
                 span={8}
@@ -545,7 +550,7 @@ export default class WhoIsUnder extends Component {
                   this.userSet(8);
                 }}
               >
-                <Player {...this.players[8]} />
+                <Player {...this.state.players[8]} />
               </Col>
             </Row>
           </Col>
