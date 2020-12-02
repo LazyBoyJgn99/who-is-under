@@ -214,8 +214,6 @@ export default class WhoIsUnder extends Component {
             break;
           case "game": // 接收所有数据
             this.players = JSON.parse(data);
-            console.log(this.players);
-            // console.log(this.players);
             break;
           case "game1": // 接收座位信息数据
             break;
@@ -275,7 +273,6 @@ export default class WhoIsUnder extends Component {
    */
   userSet = (num) => {
     if (this.ws) {
-      console.log(this.players[num].name);
       if (this.players[num].name === "空座位") {
         const json = { op: "game1", data: num };
         this.ws.send(JSON.stringify(json));
