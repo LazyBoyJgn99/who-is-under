@@ -269,15 +269,21 @@ export default class WhoIsUnder extends Component {
   render() {
     // 用户数据
     const players = [
-      { name: "测试员1", img: 0, vote: 0, speak: "最多总共就十个字内容" },
-      { name: "sc", img: 1, vote: 1, speak: "111" },
-      { name: "测试员2", img: 2, vote: 0, speak: "111" },
-      { name: "测试员3", img: 3, vote: 0, speak: "111" },
-      { name: "测试员4", img: 4, vote: 0, speak: "111" },
-      { name: "测试员5", img: 5, vote: 0, speak: "111" },
-      { name: "测试员6", img: 6, vote: 0, speak: "111" },
-      { name: "测试员7", img: 7, vote: 0, speak: "111" },
-      { name: "测试员8", img: 8, vote: 0, speak: "111" },
+      {
+        name: "测试员1",
+        img: 0,
+        vote: 0,
+        votes: 0,
+        speak: "最多总共就十个字内容",
+      },
+      { name: "sc", img: 1, vote: 1, votes: 1, speak: "111" },
+      { name: "测试员2", img: 2, vote: 9, votes: 2, speak: "111" },
+      { name: "测试员3", img: 3, vote: 0, votes: 3, speak: "111" },
+      { name: "带资本家丁丁", img: 4, vote: 5, votes: 4, speak: "111" },
+      { name: "测试员5", img: 5, vote: 0, votes: 5, speak: "111" },
+      { name: "测试员6", img: 6, vote: 0, votes: 6, speak: "111" },
+      { name: "测试员7", img: 7, vote: 0, votes: 7, speak: "111" },
+      { name: "测试员8", img: 8, vote: 0, votes: 8, speak: "111" },
     ];
 
     return (

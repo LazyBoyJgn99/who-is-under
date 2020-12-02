@@ -12,7 +12,7 @@ import player8 from "@/img/player/player_08.png";
 import player9 from "@/img/player/player_09.png";
 import playerDie from "@/img/player/player_0die.png";
 import dialog from "@/img/others/dialog.png";
-import numbers0 from "@/img/numbers/0.png";
+import numbersnull from "@/img/numbers/null.png";
 import numbers1 from "@/img/numbers/1.png";
 import numbers2 from "@/img/numbers/2.png";
 import numbers3 from "@/img/numbers/3.png";
@@ -22,6 +22,14 @@ import numbers6 from "@/img/numbers/6.png";
 import numbers7 from "@/img/numbers/7.png";
 import numbers8 from "@/img/numbers/8.png";
 import numbers9 from "@/img/numbers/9.png";
+import v1 from "@/img/numbers/v1.png";
+import v2 from "@/img/numbers/v2.png";
+import v3 from "@/img/numbers/v3.png";
+import v4 from "@/img/numbers/v4.png";
+import v5 from "@/img/numbers/v5.png";
+import v6 from "@/img/numbers/v6.png";
+import v7 from "@/img/numbers/v7.png";
+import v8 from "@/img/numbers/v8.png";
 
 export default class Player extends Component {
   state = {};
@@ -62,7 +70,7 @@ export default class Player extends Component {
       player9,
     ];
     const numberss = [
-      numbers0,
+      numbersnull,
       numbers1,
       numbers2,
       numbers3,
@@ -73,6 +81,7 @@ export default class Player extends Component {
       numbers8,
       numbers9,
     ];
+    const vs = ["", v1, v2, v3, v4, v5, v6, v7, v8];
     const speakDiv = (
       <div
         style={{
@@ -98,14 +107,16 @@ export default class Player extends Component {
             src={status === 0 ? playerDie : imgs[img]}
             alt=""
           />
-          <b className="who_is_under_player_name">{name}</b>
+          <div className="who_is_under_player_name">
+            <b>{name}</b>
+          </div>
           <img
-            src={vote === 0 ? numbers0 : numberss[vote]}
+            src={vote === 0 ? numbersnull : numberss[vote]}
             className="img_vote"
             alt=""
           />
+          <img src={vs[votes]} className="img_votes" alt="" />
         </div>
-        <br />
       </div>
     );
   }
