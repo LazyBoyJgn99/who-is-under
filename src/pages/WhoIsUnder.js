@@ -52,6 +52,7 @@ export default class WhoIsUnder extends Component {
     password: "", // 输入的password
     visible: false, // 登陆Model是否显示
     msg: "", // 发言Input输入框
+    word: "", // 关键词
   };
 
   componentDidMount() {
@@ -218,6 +219,7 @@ export default class WhoIsUnder extends Component {
             console.log(this.players);
             break;
           case "game1": // 接收座位信息数据
+            console.log("game1接收");
             break;
           //   case "out1":
           //     // 用户退出
