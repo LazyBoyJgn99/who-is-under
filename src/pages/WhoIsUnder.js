@@ -197,7 +197,7 @@ export default class WhoIsUnder extends Component {
         // console.log(datat);
         const { op, data, user } = datat;
         let text;
-        let pla;
+        let players;
         switch (op) {
           case "msg0": // 系统消息
             text = self.state.text;
@@ -214,14 +214,17 @@ export default class WhoIsUnder extends Component {
             });
             break;
           case "game": // 接收所有数据
-            console.log(pla);
-            pla = JSON.parse(data);
+            players = JSON.parse(data);
             self.setState({
-              players: pla,
+              players,
             });
             break;
           case "game1": // 接收座位信息数据
             console.log("game1接收");
+            console.log(data);
+            break;
+          case "game2": // 接收描述信息
+            console.log("game2接收");
             console.log(data);
             break;
           //   case "out1":
@@ -261,7 +264,7 @@ export default class WhoIsUnder extends Component {
   };
 
   /**
-   * 向服务端发送聊天消息
+   * 发送聊天消息
    */
   userSend = () => {
     this.setState({
@@ -276,15 +279,30 @@ export default class WhoIsUnder extends Component {
   };
 
   /**
+   * 发送描述语言
+   */
+  userGameSend = () => {
+    this.setState({
+      msg: "",
+    });
+    if (this.ws) {
+      if (this.state.msg !== "") {
+        const json = { op: "game2", data: this.state.msg };
+        this.ws.send(JSON.stringify(json));
+      }
+    }
+  };
+
+  /**
    * 选择座位坐下
    */
-  userSet = (num) => {
+  userGameSet = (num) => {
     if (this.ws) {
       if (this.state.players[num].name === "空座位") {
         const json = { op: "game1", data: num };
         this.ws.send(JSON.stringify(json));
       } else {
-        console.log("在？KK信息"); // 弹出对应位置上的玩家信息
+        // console.log("在？KK信息"); // 弹出对应位置上的玩家信息
       }
     }
   };
@@ -305,6 +323,22 @@ export default class WhoIsUnder extends Component {
     if (this.ws) {
       this.ws.close();
       this.ws = null;
+      this.setState({
+        players: [
+          {
+            // 用户数据
+            name: "带资本家丁丁", // 用户名
+            img: 1, // 头像(0到9 0是空座位头像)
+            status: null, // 身份（0死亡1平民2内鬼）
+            seat: 0, // 座位号（0-8）
+            word: "", // 关键词
+            vote: 0, // 投票
+            votes: 8, // 被投票数
+            speak: "最多十个字", // 本轮发言
+          },
+        ],
+        word: "",
+      });
     }
   };
 
@@ -375,7 +409,7 @@ export default class WhoIsUnder extends Component {
                     &emsp;关键词：&emsp;
                     {this.state.word}
                   </div>
-                  <div>&emsp;轮数：&emsp;&emsp;1</div>
+                  {/* <div>&emsp;轮数：&emsp;&emsp;1</div> */}
                 </div>
               </Col>
             </Row>
@@ -461,7 +495,7 @@ export default class WhoIsUnder extends Component {
             >
               {/* 发言按钮 */}
               <Button onClick={this.userSend}>发言</Button>
-              <Button onClick={this.userSend}>发送词语描述</Button>
+              <Button onClick={this.userGameSend}>发送词语描述</Button>
             </div>
           </Col>
           {/* 座位 */}
@@ -475,7 +509,7 @@ export default class WhoIsUnder extends Component {
               <Col
                 span={8}
                 onClick={() => {
-                  this.userSet(0);
+                  this.userGameSet(0);
                 }}
               >
                 <Player {...this.state.players[0]} />
@@ -483,7 +517,7 @@ export default class WhoIsUnder extends Component {
               <Col
                 span={8}
                 onClick={() => {
-                  this.userSet(1);
+                  this.userGameSet(1);
                 }}
               >
                 <Player {...this.state.players[1]} />
@@ -491,7 +525,7 @@ export default class WhoIsUnder extends Component {
               <Col
                 span={8}
                 onClick={() => {
-                  this.userSet(2);
+                  this.userGameSet(2);
                 }}
               >
                 <Player {...this.state.players[2]} />
@@ -503,7 +537,7 @@ export default class WhoIsUnder extends Component {
               <Col
                 span={8}
                 onClick={() => {
-                  this.userSet(3);
+                  this.userGameSet(3);
                 }}
               >
                 <Player {...this.state.players[3]} />
@@ -511,7 +545,7 @@ export default class WhoIsUnder extends Component {
               <Col
                 span={8}
                 onClick={() => {
-                  this.userSet(4);
+                  this.userGameSet(4);
                 }}
               >
                 <Player {...this.state.players[4]} />
@@ -519,7 +553,7 @@ export default class WhoIsUnder extends Component {
               <Col
                 span={8}
                 onClick={() => {
-                  this.userSet(5);
+                  this.userGameSet(5);
                 }}
               >
                 <Player {...this.state.players[5]} />
@@ -531,7 +565,7 @@ export default class WhoIsUnder extends Component {
               <Col
                 span={8}
                 onClick={() => {
-                  this.userSet(6);
+                  this.userGameSet(6);
                 }}
               >
                 <Player {...this.state.players[6]} />
@@ -539,7 +573,7 @@ export default class WhoIsUnder extends Component {
               <Col
                 span={8}
                 onClick={() => {
-                  this.userSet(7);
+                  this.userGameSet(7);
                 }}
               >
                 <Player {...this.state.players[7]} />
@@ -547,7 +581,7 @@ export default class WhoIsUnder extends Component {
               <Col
                 span={8}
                 onClick={() => {
-                  this.userSet(8);
+                  this.userGameSet(8);
                 }}
               >
                 <Player {...this.state.players[8]} />
