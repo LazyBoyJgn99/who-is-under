@@ -425,7 +425,7 @@ export default class WhoIsUnder extends Component {
             <div
               style={{
                 width: "100%",
-                height: "60%",
+                height: "65%",
                 position: "relative",
                 backgroundRepeat: "no-repeat",
                 backgroundImage: `url(${chatFrame1})`,
