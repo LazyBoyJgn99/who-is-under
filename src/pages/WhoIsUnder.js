@@ -52,6 +52,7 @@ export default class WhoIsUnder extends Component {
         speak: "最多十个字", // 本轮发言
       },
     ],
+    gameMod: 0, // 游戏状态 0没开始 1开始了
   };
 
   componentDidMount() {
@@ -284,7 +285,10 @@ export default class WhoIsUnder extends Component {
    */
   userGameSet = (num) => {
     if (this.ws) {
-      if (this.state.players[num].name === "空座位") {
+      if (
+        this.state.players[num].name === "空座位" &&
+        this.state.gameMod === 0
+      ) {
         const json = { op: "game1", data: num };
         this.ws.send(JSON.stringify(json));
       } else {
@@ -496,7 +500,11 @@ export default class WhoIsUnder extends Component {
             >
               {/* 发言按钮 */}
               <Button onClick={this.userSend}>发言</Button>
-              <Button onClick={this.userGameSend}>发送词语描述</Button>
+              <Button
+                onClick={this.state.gameMod === 0 ? this.userGameSend : ""}
+              >
+                发送词语描述
+              </Button>
             </div>
           </Col>
           {/* 座位 */}
