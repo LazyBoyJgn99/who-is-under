@@ -215,6 +215,7 @@ export default class WhoIsUnder extends Component {
             break;
           case "game": // 接收所有数据
             players = JSON.parse(data);
+            console.log(players);
             self.setState({
               players,
             });
@@ -279,6 +280,20 @@ export default class WhoIsUnder extends Component {
   };
 
   /**
+   * 选择座位坐下
+   */
+  userGameSet = (num) => {
+    if (this.ws) {
+      if (this.state.players[num].name === "空座位") {
+        const json = { op: "game1", data: num };
+        this.ws.send(JSON.stringify(json));
+      } else {
+        // console.log("在？KK信息"); // 弹出对应位置上的玩家信息
+      }
+    }
+  };
+
+  /**
    * 发送描述语言
    */
   userGameSend = () => {
@@ -289,20 +304,6 @@ export default class WhoIsUnder extends Component {
       if (this.state.msg !== "") {
         const json = { op: "game2", data: this.state.msg };
         this.ws.send(JSON.stringify(json));
-      }
-    }
-  };
-
-  /**
-   * 选择座位坐下
-   */
-  userGameSet = (num) => {
-    if (this.ws) {
-      if (this.state.players[num].name === "空座位") {
-        const json = { op: "game1", data: num };
-        this.ws.send(JSON.stringify(json));
-      } else {
-        // console.log("在？KK信息"); // 弹出对应位置上的玩家信息
       }
     }
   };
