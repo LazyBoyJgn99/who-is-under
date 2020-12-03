@@ -425,23 +425,22 @@ export default class WhoIsUnder extends Component {
             <div
               style={{
                 width: "100%",
-                height: 600,
-                display: "inline-block",
+                height: "60%",
+                position: "relative",
                 backgroundRepeat: "no-repeat",
                 backgroundImage: `url(${chatFrame1})`,
                 backgroundSize: "100% 650px",
-                // backgroundSize: "contain",
               }}
             >
               <div
                 style={{
-                  position: "absolute",
-                  top: "30%",
-                  left: "10%",
-                  display: "inline-block",
                   overflowY: "scroll",
-                  width: "80%", // 6 * boxLen,
-                  height: "45%", // 16 * boxLen,
+                  display: "inline-block",
+                  position: "absolute",
+                  top: "22%",
+                  left: "10%",
+                  width: "80%",
+                  height: "70%",
                   color: "#fff",
                 }}
               >
@@ -461,14 +460,15 @@ export default class WhoIsUnder extends Component {
             </div>
             <div
               style={{
-                marginLeft: 20,
-                width: (640 / 150) * 80,
+                marginLeft: "3%",
+                marginTop: "2%",
+                width: "60%", // (640 / 150) * 80
                 height: 80,
                 verticalAlign: "top",
                 display: "inline-block",
                 backgroundRepeat: "no-repeat",
                 backgroundImage: `url(${chatFrame2})`,
-                backgroundSize: "contain",
+                backgroundSize: "100% 100%",
                 padding: "5% 5% 4% 5%",
               }}
             >
@@ -494,18 +494,18 @@ export default class WhoIsUnder extends Component {
             </div>
             <div
               style={{
-                marginLeft: 20,
-                width: (265 / 155) * 80,
+                marginLeft: "2%",
+                marginTop: "2%",
+                width: "35%", // (265 / 155) * 80
                 height: 80,
                 display: "inline-block",
                 backgroundRepeat: "no-repeat",
                 backgroundImage: `url(${chatFrame3})`,
-                backgroundSize: "contain",
-                // padding: "5% 5% 4% 5%",
+                backgroundSize: "100% 100%",
               }}
             >
               {/* 发言按钮 */}
-              <button className="who_is_under_userSend"> </button>
+              {/* <button className="who_is_under_userSend"> </button> */}
               {/* <Button onClick={this.userSend}>发言</Button> */}
               {/* <Button */}
               {/*  onClick={this.state.gameMod === 0 ? this.userGameSend : ""} */}
