@@ -3,13 +3,14 @@
 /*  min-width: 100px;*/
 /*  !*background-color: #999999;*!*/
 /*}*/
-/*@font-face {*/
-/*  font-family:"mypxt";*/
-/*  src: url('../font/simhei.ttf');*/
-/*}*/
-/*@font-face{*/
-/*  font-family:"mht";*/
-/*  src:url("../font/mht.ttf");*/
-/*}*/
-.a{
+@font-face {
+  font-family:"pxt";
+  src: url('../font/pxt.ttf');
+}
+@font-face{
+  font-family:"mht";
+  src:url("../font/mht.ttf");
+}
+div{
+    font-family: "mht", serif;
 }

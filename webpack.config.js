@@ -95,6 +95,10 @@ module.exports = {
         },
       },
       {
+        test: /\.(ttf|eot|svg|woff|woff2)$/, // 处理 字体文件的 loader
+        loader: "url-loader",
+      },
+      {
         test: /\.html$/, // 静态资源
         loader: "html-loader",
       },
