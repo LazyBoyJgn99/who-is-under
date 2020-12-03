@@ -3,10 +3,13 @@ import { Input, Modal, message, Row, Col, Button } from "antd";
 import global from "@/global";
 import "@/css/Demo3.less";
 import "@/css/sc.less";
+import "@/css/WhoIsUnder.less";
 import Player from "@/components/whoIsUnder/Player";
 import chatFrame1 from "@/img/others/chat_frame_1.png";
 import chatFrame2 from "@/img/others/chat_frame_2.png";
 import chatFrame3 from "@/img/others/chat_frame_3.png";
+import chatFrameEnter1 from "@/img/others/chat_frame_enter_1.png";
+import chatFrameBalabala1 from "@/img/others/chat_frame_balabala_1.png";
 
 // 屏幕宽度
 // const windowInnerWidth = window.innerWidth;
@@ -499,12 +502,13 @@ export default class WhoIsUnder extends Component {
               }}
             >
               {/* 发言按钮 */}
-              <Button onClick={this.userSend}>发言</Button>
-              <Button
-                onClick={this.state.gameMod === 0 ? this.userGameSend : ""}
-              >
-                发送词语描述
-              </Button>
+              <button className="who_is_under_userSend"> </button>
+              {/* <Button onClick={this.userSend}>发言</Button> */}
+              {/* <Button */}
+              {/*  onClick={this.state.gameMod === 0 ? this.userGameSend : ""} */}
+              {/* > */}
+              {/*  发送词语描述 */}
+              {/* </Button> */}
             </div>
           </Col>
           {/* 座位 */}

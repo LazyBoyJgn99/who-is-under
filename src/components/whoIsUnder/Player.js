@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "@/pages/WhoIsUnder.less";
+import "@/css/WhoIsUnderPlayer.less";
 import playerNull from "@/img/player/player_0null.png";
 import player1 from "@/img/player/player_01.png";
 import player2 from "@/img/player/player_02.png";
