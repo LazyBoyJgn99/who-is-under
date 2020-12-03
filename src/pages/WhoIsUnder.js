@@ -426,6 +426,7 @@ export default class WhoIsUnder extends Component {
               style={{
                 width: "100%",
                 height: 600,
+                display: "inline-block",
                 backgroundRepeat: "no-repeat",
                 backgroundImage: `url(${chatFrame1})`,
                 backgroundSize: "100% 650px",
@@ -434,11 +435,13 @@ export default class WhoIsUnder extends Component {
             >
               <div
                 style={{
-                  margin: "25% 10% 5% 10%",
+                  position: "absolute",
+                  top: "30%",
+                  left: "10%",
                   display: "inline-block",
                   overflowY: "scroll",
                   width: "80%", // 6 * boxLen,
-                  height: "70%", // 16 * boxLen,
+                  height: "45%", // 16 * boxLen,
                   color: "#fff",
                 }}
               >
