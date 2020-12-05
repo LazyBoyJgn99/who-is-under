@@ -5,7 +5,7 @@ import asyncComponent from "./AsyncComponent";
 import "@/css/App.css";
 
 const WhoIsUnder = asyncComponent(() => import("./pages/WhoIsUnder"));
-
+const CS = asyncComponent(() => import("./pages/CS"));
 /**
  * 主页
  */
@@ -44,6 +44,7 @@ class App extends Component {
                   }}
                 >
                   <Route path="/game1" component={WhoIsUnder} />
+                  <Route path="/cs" component={CS} />
                 </Layout.Content>
               </Layout>
             </Layout>
